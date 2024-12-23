@@ -3,6 +3,7 @@ import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 plugins {
     alias(libs.plugins.kotlinMultiplatform)
     alias(libs.plugins.androidLibrary)
+    alias(libs.plugins.vanniktech.mavenPublish)
 }
 
 kotlin {
@@ -15,7 +16,7 @@ kotlin {
             }
         }
     }
-    
+
     listOf(
         iosX64(),
         iosArm64(),
@@ -37,11 +38,21 @@ kotlin {
     }
 }
 
+publishing {
+    group = "sample"
+    version = "1.0"
+    repositories {
+        maven {
+            url = uri("${rootProject.buildDir}/repo")
+        }
+    }
+}
+
 android {
     namespace = "com.example.kmp_local_library_sample"
     compileSdk = 34
     defaultConfig {
-        minSdk = 30
+        minSdk = 28
     }
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
