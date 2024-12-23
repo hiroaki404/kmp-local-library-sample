@@ -41,11 +41,6 @@ kotlin {
 publishing {
     group = "sample"
     version = "1.0"
-    repositories {
-        maven {
-            url = uri("${rootProject.buildDir}/repo")
-        }
-    }
 }
 
 android {
