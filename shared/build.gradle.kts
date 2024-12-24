@@ -1,3 +1,4 @@
+import java.util.Properties
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 
 plugins {
@@ -39,8 +40,20 @@ kotlin {
 }
 
 publishing {
+    repositories {
+        maven {
+            name = "library-sample"
+            url = uri("https://maven.pkg.github.com/hiroaki404/kmp-local-library-sample")
+            credentials {
+                val localProperties = Properties()
+                localProperties.load(rootProject.file("local.properties").inputStream())
+                username = "${localProperties["gpr.user"]}"
+                password = "${localProperties["gpr.key"]}"
+            }
+        }
+    }
     group = "sample"
-    version = "1.0"
+    version = "1.1"
 }
 
 android {
