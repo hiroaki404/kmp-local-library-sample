@@ -13,6 +13,6 @@ let package = Package(
       .binaryTarget(
          name: "Shared",
          url: "https://github.com/hiroaki404/kmp-local-library-sample/releases/download/publish/Shared.xcframework.zip",
-         checksum:"da00855d6db440c774b97abcc9a27e1ef5608f03632880f06d148f4095b21720")
+         checksum:"fe44fd6add0038078b5d74277bf19870916225a06f9a46c58fe55509ddf96098")
    ]
 )
